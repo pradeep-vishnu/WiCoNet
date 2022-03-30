@@ -28,8 +28,8 @@ args = {
     'val_batch_size': 1,
     'size_local': 256,
     'size_context': 256 * 3,
-    'data_dir': 'YOUR_DATA_DIR',
-    'load_path': 'YOUR_DATA_DIRSAVED_MODEL_CHECKPOINT.pth'
+    'data_dir': '/gpfs1/dlocal/home/2018015/PARTAGE/dataset/mapillary/',
+    'load_path': '/gpfs1/home/2018015/vprade01/repos/WiCoNet/weights/cityscapes-swnet-R18.pt'
 }
 
 

@@ -35,7 +35,7 @@ args = {
     'print_freq': 100,
     'save_pred': True,
     'num_workers': 4,
-    'data_dir': 'YOUR_DATA_DIR',
+    'data_dir': '/gpfs1/dlocal/home/2018015/PARTAGE/dataset/mapillary/',
     'pred_dir': os.path.join(working_path, 'results', DATA_NAME),
     'chkpt_dir': os.path.join(working_path, 'checkpoints', DATA_NAME),
     'log_dir': os.path.join(working_path, 'logs', DATA_NAME, NET_NAME)
