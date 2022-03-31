@@ -1,8 +1,9 @@
+                                                                                                                  
 #!/bin/bash
 
-# Slurm submission script, 
-# GPU job 
-# CRIHAN v 1.00 - Jan 2017 
+# Slurm submission script,
+# GPU job
+# CRIHAN v 1.00 - Jan 2017
 # support@criann.fr
 
 #shared ressources
@@ -10,21 +11,21 @@
 
 
 # Job name
-#SBATCH -J "Trial_Map"
+#SBATCH -J "W_01"
 
 # Batch output file
-#SBATCH --output output/GSV.o%J
+#SBATCH --output output/W.o%J
 
 # Batch error file
-#SBATCH --error output/GSV.e%J
+#SBATCH --error output/W.e%J
 
-#SBATCH --partition gpu_k80
+#SBATCH --partition gpu_p100
 
 #SBATCH --time 48:00:00
-#SBATCH --gres gpu:2
+#SBATCH --gres gpu:1
 
 
-#SBATCH --cpus-per-task 4
+#SBATCH --cpus-per-task 7
 
 #SBATCH --mem 20000
 # -----
@@ -39,14 +40,6 @@ module load python3-DL/3.8.5
 # ---------------------------------
 
 
-cp -ar PyTorch-ENet  $LOCAL_WORK_DIR
-cd $LOCAL_WORK_DIR
-echo Working directory : $PWD
+srun python3 ~/repos/WiCoNet/train.py
 
-#add wanted options on the next line
-srun python3 ~/repos/WiCoNet/eval.py
 
-# Move output data to target directory
-mv *.pth *.png $SLURM_SUBMIT_DIR/output/
-
-sacct --format=AllocCPUs,AveCPU,MaxRSS,MaxVMSize,JobName -j $SLURM_JOB_ID

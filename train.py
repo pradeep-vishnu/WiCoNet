@@ -12,17 +12,17 @@ from utils.utils import accuracy, AverageMeter
 
 # Choose model and data
 ##################################################
-from datasets import BLU_WiCo as BLU
+from datasets import blu as BLU
 from models.WiCoNet import WiCoNet as Net
 NET_NAME = 'WiCoNet_3hw4L'
-DATA_NAME = 'BLU'
+DATA_NAME = 'Mapillary'
 ##################################################
 
 
 # Change training parameters here
 args = {
-    'train_batch_size': 32,
-    'val_batch_size': 32,
+    'train_batch_size': 8,
+    'val_batch_size': 8,
     'lr': 0.1,
     'epochs': 50,
     'gpu': True,
